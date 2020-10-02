@@ -1,10 +1,17 @@
 package ua.gov.bank.model;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
+import java.util.Date;
 
+@XmlRootElement
 @Entity
 @Table(name = "payments")
+@NamedQueries({
+        @NamedQuery(name = "Payment.findByPayer", query = "SELECT p.payer FROM Payment p WHERE p.payer.id = :id"),
+        @NamedQuery(name = "Payment.findByPayee", query = "SELECT p.payee FROM Payment p WHERE p.payee.id = :id")
+})
 public class Payment implements Serializable {
 
     @Id
@@ -13,6 +20,10 @@ public class Payment implements Serializable {
 
     @Column(name = "amount")
     private Float amount;
+
+    @Column(name = "transaction_date")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date transactionDate;
 
     @OneToOne
     @JoinColumn(name = "source_user_id", referencedColumnName = "id")
@@ -76,5 +87,26 @@ public class Payment implements Serializable {
 
     public void setPayeeAccount(Account payeeAccount) {
         this.payeeAccount = payeeAccount;
+    }
+
+    public Date getTransactionDate() {
+        return transactionDate;
+    }
+
+    public void setTransactionDate(Date transactionDate) {
+        this.transactionDate = transactionDate;
+    }
+
+    @Override
+    public String toString() {
+        return "Payment{" +
+                "id=" + id +
+                ", amount=" + amount +
+                ", transactionDate=" + transactionDate +
+                ", payer=" + payer +
+                ", payee=" + payee +
+                ", payerAccount=" + payerAccount +
+                ", payeeAccount=" + payeeAccount +
+                '}';
     }
 }

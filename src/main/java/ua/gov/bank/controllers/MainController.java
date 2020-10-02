@@ -1,5 +1,8 @@
 package ua.gov.bank.controllers;
 
+import ua.gov.bank.model.Payment;
+import ua.gov.bank.services.AccountService;
+import ua.gov.bank.services.PaymentService;
 import ua.gov.bank.services.UserService;
 
 import javax.annotation.PostConstruct;
@@ -12,17 +15,16 @@ import javax.inject.Inject;
 public class MainController {
 
     @Inject
-    private UserService service;
+    private UserService userSvc;
+
+    @Inject
+    private AccountService accountSvc;
+
+    @Inject
+    private PaymentService paymentSvc;
 
     @PostConstruct
     public void init() {
-        if(service == null){
-            System.out.println("* * * This is null * * *");
-        } else {
-            System.out.println("* * NOT NULL * * ");
-        }
 
-        System.out.println("Printing out all of the users");
-        service.all().forEach(System.out::println);
     }
 }

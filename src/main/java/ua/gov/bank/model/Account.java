@@ -1,13 +1,16 @@
 package ua.gov.bank.model;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 
+@XmlRootElement
 @Entity
 @Table(name = "accounts")
 public class Account implements Serializable {
 
     @Id
+    @GeneratedValue(generator = "ID", strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
 
@@ -40,5 +43,13 @@ public class Account implements Serializable {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "id=" + id +
+                ", balance=" + balance +
+                '}';
     }
 }
