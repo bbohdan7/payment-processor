@@ -48,9 +48,17 @@ public class AccountService extends Service<Account> {
     }
 
     @DELETE
-    public Response deleteAcc(Account acc){
-        super.delete(acc);
+    @Path("{id}")
+    public Response deleteAcc(@PathParam("id") Integer id) {
+        super.delete(find(id));
         return Response.status(Response.Status.OK.getStatusCode(), "Successfully removed.").build();
+    }
+
+    @PUT
+    @Path("{id}")
+    public Response updateAcc(Account acc) {
+        super.update(acc);
+        return Response.status(Response.Status.OK).build();
     }
 
     @GET
