@@ -1,9 +1,6 @@
 package ua.gov.bank.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 
@@ -13,6 +10,7 @@ import java.io.Serializable;
 public class User implements Serializable {
 
     @Id
+    @GeneratedValue(generator = "USER", strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
 

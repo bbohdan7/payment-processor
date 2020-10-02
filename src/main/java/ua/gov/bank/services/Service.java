@@ -26,9 +26,8 @@ public abstract class Service<T extends Serializable> {
         return getEntityManager().find(entityClass, id);
     }
 
-    public Response create(T obj) {
+    public void create(T obj) {
         getEntityManager().persist(obj);
-        return null;
     }
 
     public void update(T obj) {

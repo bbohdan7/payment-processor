@@ -15,6 +15,7 @@ import java.util.Date;
 public class Payment implements Serializable {
 
     @Id
+    @GeneratedValue(generator = "PAYMENTS", strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
 

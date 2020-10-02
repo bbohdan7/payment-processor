@@ -42,10 +42,15 @@ public class AccountService extends Service<Account> {
     }
 
     @POST
-    public Response create(Account acc) {
+    public Response createAcc(Account acc) {
         super.create(acc);
+        return Response.status(Response.Status.CREATED).build();
+    }
 
-        return Response.ok().build();
+    @DELETE
+    public Response deleteAcc(Account acc){
+        super.delete(acc);
+        return Response.status(Response.Status.OK.getStatusCode(), "Successfully removed.").build();
     }
 
     @GET
