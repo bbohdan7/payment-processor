@@ -2,7 +2,6 @@ package ua.gov.bank.services;
 
 import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaQuery;
-import javax.ws.rs.core.Response;
 import java.io.Serializable;
 import java.util.List;
 

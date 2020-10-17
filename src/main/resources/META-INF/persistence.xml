@@ -5,7 +5,7 @@
 
     <persistence-unit name="PaymentsPU" transaction-type="JTA">
         <!--        <jta-data-source>jdbc/paymentsDS</jta-data-source>-->
-        <jta-data-source>java:/PaymentDS</jta-data-source>
+        <jta-data-source>jdbc/PaymentDS</jta-data-source>
 
     </persistence-unit>
 </persistence>
