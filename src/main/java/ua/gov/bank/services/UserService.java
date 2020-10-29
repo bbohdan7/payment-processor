@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.util.List;
 
 @Stateless
@@ -28,13 +29,19 @@ public class UserService extends Service<User> {
     }
 
     @GET
-    public List<User> all(){
+    public List<User> all() {
         return super.all();
+    }
+
+    @POST
+    public Response create(User user) {
+        super.create(user);
+        return Response.ok().entity("User has been created!").build();
     }
 
     @GET
     @Path("{id}")
-    public User find(@PathParam("id") Integer id){
+    public User find(@PathParam("id") Integer id) {
         return super.find(id);
     }
 

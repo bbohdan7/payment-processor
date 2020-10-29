@@ -1,5 +1,7 @@
 package ua.gov.bank.services;
 
+import ua.gov.bank.filters.CorsFilter;
+
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 import java.util.Collections;
@@ -16,6 +18,7 @@ public class ApplicationConfig extends Application {
         conf.add(AccountService.class);
         conf.add(PaymentService.class);
         conf.add(UserService.class);
+        conf.add(CorsFilter.class);
 
         classes = Collections.unmodifiableSet(conf);
     }

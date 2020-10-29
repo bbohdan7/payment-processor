@@ -2,6 +2,7 @@ package ua.gov.bank.services;
 
 import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.ws.rs.core.Response;
 import java.io.Serializable;
 import java.util.List;
 
@@ -25,8 +26,9 @@ public abstract class Service<T extends Serializable> {
         return getEntityManager().find(entityClass, id);
     }
 
-    public void create(T obj) {
+    public Response create(T obj) {
         getEntityManager().persist(obj);
+        return Response.ok().build();
     }
 
     public void update(T obj) {
