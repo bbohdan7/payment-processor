@@ -1,6 +1,6 @@
-package ua.gov.bank.services;
+package ua.gov.bank.services.rest;
 
-import ua.gov.bank.filters.CorsFilter;
+import ua.gov.bank.services.filters.CorsFilter;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
@@ -15,9 +15,10 @@ public class ApplicationConfig extends Application {
 
     public ApplicationConfig() {
         HashSet<Class<?>> conf = new HashSet<>();
-        conf.add(AccountService.class);
-        conf.add(PaymentService.class);
-        conf.add(UserService.class);
+
+        conf.add(UsersAPI.class);
+        conf.add(AccountsAPI.class);
+        conf.add(PaymentsAPI.class);
         conf.add(CorsFilter.class);
 
         classes = Collections.unmodifiableSet(conf);

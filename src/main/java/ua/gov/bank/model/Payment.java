@@ -24,7 +24,7 @@ public class Payment implements Serializable {
 
     @Column(name = "transaction_date")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date transactionDate;
+    private Date transactionDate = new Date();
 
     @OneToOne
     @JoinColumn(name = "source_user_id", referencedColumnName = "id")

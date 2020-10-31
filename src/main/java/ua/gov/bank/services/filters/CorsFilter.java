@@ -1,4 +1,4 @@
-package ua.gov.bank.filters;
+package ua.gov.bank.services.filters;
 
 import javax.ws.rs.container.ContainerRequestContext;
 import javax.ws.rs.container.ContainerResponseContext;
