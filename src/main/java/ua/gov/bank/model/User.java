@@ -7,6 +7,9 @@ import java.io.Serializable;
 @XmlRootElement
 @Entity
 @Table(name = "users")
+@NamedQueries({
+        @NamedQuery(name = "User.findByName", query = "SELECT u FROM User u WHERE u.firstname LIKE :firstname AND u.lastname LIKE :lastname")
+})
 public class User implements Serializable {
 
     @Id

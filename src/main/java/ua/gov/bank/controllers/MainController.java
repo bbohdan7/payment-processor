@@ -1,6 +1,5 @@
 package ua.gov.bank.controllers;
 
-import ua.gov.bank.model.Payment;
 import ua.gov.bank.services.AccountService;
 import ua.gov.bank.services.PaymentService;
 import ua.gov.bank.services.UserService;
@@ -10,6 +9,7 @@ import javax.ejb.Singleton;
 import javax.ejb.Startup;
 import javax.inject.Inject;
 
+@Deprecated
 @Startup
 @Singleton
 public class MainController {

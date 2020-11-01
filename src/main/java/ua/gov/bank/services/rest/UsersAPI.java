@@ -9,11 +9,15 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
+import java.util.logging.Logger;
 
 @Stateless
 @Path("users")
 @Produces(MediaType.APPLICATION_JSON)
 public class UsersAPI {
+
+    private static final Logger LOGGER = Logger.getLogger(UsersAPI.class.getName());
+
 
     @Inject
     private UserService service;
@@ -27,6 +31,17 @@ public class UsersAPI {
     @Path("{id}")
     public User find(@PathParam("id") Integer id) {
         return service.find(id);
+    }
+
+    @GET
+    @Path("search")
+    public Response findByFullName(@DefaultValue("") @QueryParam("firstname") String firstname,
+                                   @DefaultValue("")  @QueryParam("lastname") String lastname) {
+        List<User> result = service.findByFullName(firstname, lastname);
+
+        return result.isEmpty()
+                ? Response.status(Response.Status.NOT_FOUND).build()
+                : Response.ok(result).build();
     }
 
     @POST
