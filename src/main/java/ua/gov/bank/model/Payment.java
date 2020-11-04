@@ -8,9 +8,6 @@ import java.util.Date;
 @XmlRootElement
 @Entity
 @Table(name = "payments")
-@NamedQueries({
-        @NamedQuery(name = "Payment.findBy", query = "")
-})
 public class Payment implements Serializable {
 
     @Id
