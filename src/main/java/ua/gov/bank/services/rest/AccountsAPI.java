@@ -36,6 +36,17 @@ public class AccountsAPI {
         return Response.ok().entity(acc).build();
     }
 
+    @GET
+    @Path("search")
+    public Response findByUserName(@DefaultValue("") @QueryParam("firstname") String firstname,
+                                   @DefaultValue("") @QueryParam("lastname") String lastname) {
+        List<Account> result = service.findByUserName(firstname, lastname);
+
+        return result.isEmpty()
+                ? Response.status(Response.Status.NOT_FOUND).build()
+                : Response.ok(result).build();
+    }
+
     @POST
     public Response create(Account acc) {
         service.create(acc);

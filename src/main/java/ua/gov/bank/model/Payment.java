@@ -9,8 +9,7 @@ import java.util.Date;
 @Entity
 @Table(name = "payments")
 @NamedQueries({
-        @NamedQuery(name = "Payment.findByPayer", query = "SELECT p.payer FROM Payment p WHERE p.payer.id = :id"),
-        @NamedQuery(name = "Payment.findByPayee", query = "SELECT p.payee FROM Payment p WHERE p.payee.id = :id")
+        @NamedQuery(name = "Payment.findBy", query = "")
 })
 public class Payment implements Serializable {
 
