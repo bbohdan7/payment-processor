@@ -8,7 +8,8 @@ import java.io.Serializable;
 @Entity
 @Table(name = "accounts")
 @NamedQueries({
-        @NamedQuery(name = "Account.findByUserName", query = "SELECT a FROM Account a WHERE a.user.firstname LIKE :firstname AND a.user.lastname LIKE :lastname")
+        @NamedQuery(name = "Account.findByUserName", query = "SELECT a FROM Account a WHERE a.user.firstname LIKE :firstname AND a.user.lastname LIKE :lastname"),
+        @NamedQuery(name = "Account.findByUser", query = "SELECT a FROM Account a WHERE a.user.id = :user")
 })
 public class Account implements Serializable {
 

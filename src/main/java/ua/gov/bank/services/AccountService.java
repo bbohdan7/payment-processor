@@ -29,4 +29,9 @@ public class AccountService extends Service<Account> {
                 .getResultList();
     }
 
+    public List<Account> findByUser(Integer id) {
+        return getEntityManager().createNamedQuery("Account.findByUser", Account.class)
+                .setParameter("user", id).getResultList();
+    }
+
 }

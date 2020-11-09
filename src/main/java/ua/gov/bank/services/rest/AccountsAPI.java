@@ -37,6 +37,16 @@ public class AccountsAPI {
     }
 
     @GET
+    @Path("owner/{id}")
+    public Response findByOwner(@PathParam("id") Integer id) {
+        List<Account> result = service.findByUser(id);
+
+        return result.isEmpty()
+                ? Response.status(Response.Status.NOT_FOUND).build()
+                : Response.ok(result).build();
+    }
+
+    @GET
     @Path("search")
     public Response findByUserName(@DefaultValue("") @QueryParam("firstname") String firstname,
                                    @DefaultValue("") @QueryParam("lastname") String lastname) {
