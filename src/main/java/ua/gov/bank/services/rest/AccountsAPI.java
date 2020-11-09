@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.Collections;
 import java.util.List;
 
 @Stateless
@@ -42,7 +43,7 @@ public class AccountsAPI {
         List<Account> result = service.findByUser(id);
 
         return result.isEmpty()
-                ? Response.status(Response.Status.NOT_FOUND).build()
+                ? Response.status(Response.Status.NOT_FOUND).entity(Collections.emptyList()).build()
                 : Response.ok(result).build();
     }
 
