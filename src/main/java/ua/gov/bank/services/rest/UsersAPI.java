@@ -18,7 +18,6 @@ public class UsersAPI {
 
     private static final Logger LOGGER = Logger.getLogger(UsersAPI.class.getName());
 
-
     @Inject
     private UserService service;
 
