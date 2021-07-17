@@ -8,9 +8,7 @@
     <artifactId>PaymentProcessor</artifactId>
     <version>1.0</version>
     <packaging>war</packaging>
-
-    <!-- backend application -->
-
+         
     <name>PaymentProcessor</name>
 
     <properties>
