@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: payment-processor
+  name: payment-processor-backend
   labels:
-    app: payment-processor
+    app: payment-processor-backend
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: payment-processor
+      app: payment-processor-backend
   template:
     metadata:
       labels:
-        app: payment-processor
+        app: payment-processor-backend
     spec:
       containers:
       - name: wasapp
-        image: myregistry:31777/wasapp-piped
+        image: 192.168.0.132/payment-processor-backend
         imagePullPolicy: Always
         ports:
         - containerPort: 9080
