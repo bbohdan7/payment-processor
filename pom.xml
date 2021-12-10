@@ -8,6 +8,7 @@
     <version>1.0</version>
     <packaging>war</packaging>
     <!-- Hello, World! -->
+    <!-- This message will trigger redeployment -->
     <name>PaymentProcessor</name>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
