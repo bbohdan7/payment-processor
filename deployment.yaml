@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: wasapp
-        image: 192.168.0.135/payment-processor-backend
+        image: 192.168.0.134/payment-processor-backend
         imagePullPolicy: Always
         ports:
         - containerPort: 9080
