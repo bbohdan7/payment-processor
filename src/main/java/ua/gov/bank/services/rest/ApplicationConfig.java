@@ -19,6 +19,7 @@ public class ApplicationConfig extends Application {
         conf.add(UsersAPI.class);
         conf.add(AccountsAPI.class);
         conf.add(PaymentsAPI.class);
+        conf.add(EmployeeAPI.class);
         conf.add(CorsFilter.class);
 
         classes = Collections.unmodifiableSet(conf);
