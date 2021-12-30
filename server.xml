@@ -39,7 +39,7 @@
 
     <dataSource jndiName="jdbc/PaymentDS" transactional="true">
       <jdbcDriver libraryRef="MySQLLib" />
-      <properties databaseName="nbu" serverName="mysql-db-0.mysql-db" portNumber="3306" user="root" password="root" />
+      <properties databaseName="nbu" serverName="mysql-db-0.mysql-db" portNumber="3306" user="root" password="root_123" />
     </dataSource>
 
 </server>
