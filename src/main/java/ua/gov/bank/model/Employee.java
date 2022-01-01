@@ -15,6 +15,7 @@ public class Employee implements Serializable {
 
     @Id
     @Column(name = "id")
+    @XmlElement(name = "id")
     private Integer id;
 
     @Column(name = "employee_name")
