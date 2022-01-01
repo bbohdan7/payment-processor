@@ -5,11 +5,9 @@ import ua.gov.bank.services.EmployeeService;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.util.List;
 
 @Stateless
@@ -24,5 +22,15 @@ public class EmployeeAPI {
     @GET
     public List<Employee> all() {
         return svc.all();
+    }
+
+    @GET
+    @Path("{id}")
+    public Response findById(@PathParam("id") Integer id) {
+        Employee result = svc.find(id);
+        if (result == null) {
+            return Response.status(Response.Status.NOT_FOUND.getStatusCode(), "Couldn't find requested employee.").build();
+        }
+        return Response.ok(result).build();
     }
 }
