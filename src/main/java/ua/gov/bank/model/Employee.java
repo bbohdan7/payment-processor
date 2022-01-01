@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlElement;
 import java.io.Serializable;
 
 @Entity
@@ -15,15 +16,19 @@ public class Employee implements Serializable {
     private Integer id;
 
     @Column(name = "employee_name")
+    @XmlElement(name = "employee_name")
     private String employeeName;
 
     @Column(name = "employee_salary")
+    @XmlElement(name = "employee_salary")
     private Integer employeeSalary;
 
     @Column(name = "employee_age")
+    @XmlElement(name = "employee_age")
     private Integer employeeAge;
 
     @Column(name = "profile_image")
+    @XmlElement(name = "profile_image")
     private String profileImage;
 
     public Integer getId() {
