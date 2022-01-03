@@ -36,21 +36,32 @@ public class EmployeeAPI {
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response createEmployee(Employee employee){
+    public Response createEmployee(Employee employee) {
         svc.create(employee);
         return Response.ok("Successfully created!").build();
     }
 
     @PUT
     @Path("{id}")
-    public Response updateEmployee(@PathParam("id") Integer id, Employee employee){
-        if(svc.find(id) != null) {
+    public Response updateEmployee(@PathParam("id") Integer id, Employee employee) {
+        if (svc.find(id) != null) {
             employee.setId(id);
             svc.update(employee);
             return Response.ok("Updated").build();
         }
 
         return Response.ok("Unable to update employee as it wasn't found.").build();
+    }
+
+    @DELETE
+    @Path("{id}")
+    public Response deleteEmployee(@PathParam("id") Integer id) {
+        Employee employee = svc.find(id);
+        if (employee != null) {
+            svc.delete(employee);
+            return Response.ok("Deleted successfully!").build();
+        }
+        return Response.ok("Unable to delete this object.").build();
     }
 
 
