@@ -54,9 +54,7 @@ public class UsersAPI {
     @Path("{id}")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response update(@PathParam("id") Integer id, User user) {
-        boolean userExist = service.find(id) != null;
-
-        if (userExist) {
+        if (service.find(id) != null) {
             user.setId(id);
             service.update(user);
             return Response.status(Response.Status.ACCEPTED).build();

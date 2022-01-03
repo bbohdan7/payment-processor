@@ -33,4 +33,25 @@ public class EmployeeAPI {
         }
         return Response.ok(result).build();
     }
+
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response createEmployee(Employee employee){
+        svc.create(employee);
+        return Response.ok("Successfully created!").build();
+    }
+
+    @PUT
+    @Path("{id}")
+    public Response updateEmployee(@PathParam("id") Integer id, Employee employee){
+        if(svc.find(id) != null) {
+            employee.setId(id);
+            svc.update(employee);
+            return Response.ok("Updated").build();
+        }
+
+        return Response.ok("Unable to update employee as it wasn't found.").build();
+    }
+
+
 }
